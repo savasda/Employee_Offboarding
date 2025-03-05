@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "color-named": null,
+    "function-no-unknown": null,
+    "function-name-case": null,
+    "max-nesting-depth": null,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "no-invalid-position-at-import-rule": [
+      true,
+      {
+        "ignoreAtRules": [
+          "use"
+        ]
+      }
+    ],
+    "import-notation": "string",
+    "selector-max-compound-selectors": null,
+    "selector-no-qualifying-type": null,
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": [
+          "ng-deep"
+        ]
+      }
+    ]
+  }
+}

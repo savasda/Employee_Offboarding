@@ -1,0 +1,18 @@
+@if (displayGoBack) {
+  <button class="mt-3 go-back" (click)="onGoBack()">Back</button>
+}
+<h2
+  class="d-flex justify-content-between"
+  [ngClass]="{
+    'pt-2': displayGoBack,
+    'pt-5': !displayGoBack
+  }"
+>
+  {{ title }}
+  <span><ng-content /></span>
+  @if (button) {
+    <button mat-flat-button [disabled]="button.disabled | async" (click)="button.func()">
+      {{ button.buttonName }}
+    </button>
+  }
+</h2>

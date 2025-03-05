@@ -1,0 +1,109 @@
+<h2 mat-dialog-title>Offboard</h2>
+<mat-dialog-content [formGroup]="offboardForm">
+  <div class="py-2">
+    <mat-form-field appearance="outline" class="w-100 mb-1">
+      <mat-label>Receiver</mat-label>
+      <input matInput formControlName="receiver" placeholder="Receiver" />
+      @if (offboardForm.get('receiver')?.invalid && offboardForm.get('receiver')?.touched) {
+        <mat-error>
+          @if (offboardForm.get('receiver')?.getError('required')) {
+            Receiver is required.
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100 mb-1">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Email" />
+      @if (offboardForm.get('email')?.invalid && offboardForm.get('email')?.touched) {
+        <mat-error>
+          @if (offboardForm.get('email')?.getError('required')) {
+            Email is required.
+          }
+          @if (offboardForm.get('email')?.getError('email')) {
+            Email is invalid.
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100 mb-1">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" placeholder="Phone" />
+      @if (offboardForm.get('phone')?.invalid && offboardForm.get('phone')?.touched) {
+        <mat-error>
+          @if (offboardForm.get('phone')?.getError('required')) {
+            Phone number is required.
+          }
+          @if (offboardForm.get('phone')?.getError('invalidPhone')) {
+            Invalid phone number format (e.g., +1234567890).
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100 mb-1">
+      <mat-label>Street line</mat-label>
+      <input matInput formControlName="street" placeholder="Street line" />
+      @if (offboardForm.get('street')?.invalid && offboardForm.get('street')?.touched) {
+        <mat-error>
+          @if (offboardForm.get('street')?.getError('required')) {
+            Street line is required.
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <div class="flex">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <mat-form-field appearance="outline" class="w-100 mb-1">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="City" />
+            @if (offboardForm.get('city')?.invalid && offboardForm.get('city')?.touched) {
+              <mat-error>
+                @if (offboardForm.get('city')?.getError('required')) {
+                  City is required.
+                }
+              </mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <mat-form-field appearance="outline" class="w-100 mb-1">
+            <mat-label>Postal Code</mat-label>
+            <input matInput formControlName="postalCode" placeholder="Postal Code" />
+            @if (offboardForm.get('postalCode')?.invalid && offboardForm.get('postalCode')?.touched) {
+              <mat-error>
+                @if (offboardForm.get('postalCode')?.getError('required')) {
+                  Postal Code is required.
+                }
+              </mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline" class="w-100 mb-1">
+      <mat-label>Country</mat-label>
+      <input matInput formControlName="country" placeholder="Country" />
+      @if (offboardForm.get('country')?.invalid && offboardForm.get('country')?.touched) {
+        <mat-error>
+          @if (offboardForm.get('country')?.getError('required')) {
+            Country is required.
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Notes</mat-label>
+      <textarea matInput formControlName="notes" placeholder="Notes"></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onOffboardUser()">Confirm</button>
+</mat-dialog-actions>

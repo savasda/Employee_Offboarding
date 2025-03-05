@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html {
+  color-scheme: light light;
+  @include mat.theme((
+    color: mat.$violet-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
+
+.mat-mdc-header-row {
+  background: var(--mat-sys-primary-fixed-dim) !important;
+}
+.w-100 {
+  width: 100%;
+}
+.pointer {
+  cursor: pointer;
+}
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
